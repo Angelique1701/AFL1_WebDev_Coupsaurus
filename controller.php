@@ -6,4 +6,7 @@ $model = new model();
 $controller = $_GET['controller']??'agency';
 $action = $_GET['action']??'list';
 
-if($controller == "agency
+if($controller == 'agency' && $action == 'list'){
+    $agencies = $model->getAllAgencies();
+    include 'views/agency/list.php';
+}
