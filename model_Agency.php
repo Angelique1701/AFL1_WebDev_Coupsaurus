@@ -24,13 +24,13 @@ class model {
     }
 
     public function addAgency($name, $address, $phone) {
-        $stmt = $this->conn->prepare("INSERT INTO agency (name, address, phone) VALUES (?, ?, ?)");
+        $stmt = $this->conn->prepare("INSERT INTO agency (name, address, year, ceo) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("sss", $name, $address, $phone);
         return $stmt->execute();
     }
 
     public function updateAgency($id, $name, $address, $phone) {
-        $stmt = $this->conn->prepare("UPDATE agency SET name = ?, address = ?, phone = ? WHERE id = ?");
+        $stmt = $this->conn->prepare("UPDATE agency SET name = ?, address = ?, year = ?, ceo = ? WHERE id = ?");
         $stmt->bind_param("sssi", $name, $address, $phone, $id);
         return $stmt->execute();
     }

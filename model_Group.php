@@ -10,19 +10,6 @@ class model {
         }
     }
 
-    public function getAgency() {
-        $sql = "SELECT * FROM agency";
-        $result = $this->conn->query($sql);
-
-        $agencies = [];
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                $agencies[] = $row;
-            }
-        }
-        return $agencies;
-    }
-
 public function getGroups() {
         $sql = "SELECT g.id, g.group_name, a.name AS agency_name 
                 FROM groups g 
