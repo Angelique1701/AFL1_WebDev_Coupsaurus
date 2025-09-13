@@ -3,38 +3,58 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Agency List</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <title>Group List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<body class="bg-light">
 
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h1 class="h3 mb-0">Agency List</h1>
-    <a href="view_GroupAdd.php" class="btn btn-primary">Add New Group</a>
-    <a href="view_GroupDelete.php" class="btn btn-primary">Delete Group</a>
-    <a href="view_GroupUpdate.php" class="btn btn-primary">Update Group</a>
+<div class="container mt-5">
+
+    <!-- Header + tombol -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3 mb-0">Group List</h1>
+        <div>
+            <a href="view_GroupAdd.php" class="btn btn-primary me-2">Add New Group</a>
+        </div>
+    </div>
+
+    <!-- Tabel -->
+    <div class="card shadow">
+        <div class="card-body p-0">
+            <table class="table table-hover table-bordered mb-0">
+                <thead class="table-light">
+                    <tr class="text-center">
+                        <th>Group ID</th>
+                        <th>Group Name</th>
+                        <th>Debut Date</th>
+                        <th>Status</th>
+                        <th>Agency ID</th>
+                        <th style="width: 150px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($groups as $group): ?>
+                    <tr>
+                        <td class="text-center"><?= htmlspecialchars($group['id']); ?></td>
+                        <td><?= htmlspecialchars($group['group_name']); ?></td>
+                        <td><?= htmlspecialchars($group['debut_date']); ?></td>
+                        <td class="text-center"><?= htmlspecialchars($group['status']); ?></td>
+                        <td><?= htmlspecialchars($group['agency_id']); ?></td>
+                        <td class="text-center">
+                            <a href="edit_group.php?id=<?= $group['id']; ?>" class="btn btn-sm btn-warning me-1">Edit</a>
+                            <a href="delete_group.php?id=<?= $group['id']; ?>" 
+                            class="btn btn-sm btn-danger" 
+                            onclick="return confirm('Are you sure you want to delete this group?');">Delete</a>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
 
-<table class="table table-bordered">
-    <thead class="table-light">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Debut Date</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($groups as $group): ?>
-        <tr>
-            <td><?php echo htmlspecialchars($group['group_id']); ?></td>
-            <td><?php echo htmlspecialchars($group['group_name']); ?></td>
-            <td><?php echo htmlspecialchars($group['gdebut_date']); ?></td>
-            <td><?php echo htmlspecialchars($group['status']); ?></td>
-            <td>
-                <a href="edit_group.php?id=<?php echo $group['id']; ?>" class="btn btn-sm btn-warning">Edit</a>
-                <a href="delete_group.php?id=<?php echo $group['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this group?');">Delete</a>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-    </tbody>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
