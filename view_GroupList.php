@@ -12,20 +12,18 @@
             <th>Name</th>
             <th>Debut Date</th>
             <th>Status</th>
-            <th>Agency ID</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach ($groups as $group): ?>
         <tr>
-            <td><?php echo htmlspecialchars($group['id']); ?></td>
-            <td><?php echo htmlspecialchars($agency['name']); ?></td>
-            <td><?php echo htmlspecialchars($agency['address']); ?></td>
-            <td><?php echo htmlspecialchars($agency['Founding Year']); ?></td>
-            <td><?php echo htmlspecialchars($agency['CEO']); ?></td>
+            <td><?php echo htmlspecialchars($group['group_id']); ?></td>
+            <td><?php echo htmlspecialchars($group['group_name']); ?></td>
+            <td><?php echo htmlspecialchars($group['gdebut_date']); ?></td>
+            <td><?php echo htmlspecialchars($group['status']); ?></td>
             <td>
-                <a href="edit_agency.php?id=<?php echo $agency['id']; ?>" class="btn btn-sm btn-warning">Edit</a>
-                <a href="delete_agency.php?id=<?php echo $agency['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this agency?');">Delete</a>
+                <a href="edit_group.php?id=<?php echo $group['id']; ?>" class="btn btn-sm btn-warning">Edit</a>
+                <a href="delete_group.php?id=<?php echo $group['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this group?');">Delete</a>
             </td>
         </tr>
         <?php endforeach; ?>
