@@ -25,13 +25,13 @@
             <tbody>
             <?php foreach ($agencies as $agency): ?>
             <tr>
-                <td class="text-center"><?= htmlspecialchars($agency['id']); ?></td>
-                <td><?= htmlspecialchars($agency['name']); ?></td>
-                <td><?= htmlspecialchars($agency['ceo']); ?></td>
+                <td class="text-center"><?= htmlspecialchars($agency['company_id']); ?></td>
+                <td><?= htmlspecialchars($agency['company_name']); ?></td>
+                <td><?= htmlspecialchars($agency['ceo_name']); ?></td>
                 <td class="text-center">
-                <a href="delete_agency.php?id=<?= $agency['id']; ?>" 
+                <a href="view_AgencyDelete.php?id=<?= $agency['company_id']; ?>" 
                     class="btn btn-sm btn-danger"
-                    onclick="return confirm('Are you sure you want to delete <?= htmlspecialchars($agency['name']); ?>?');">
+                    onclick="return confirm('Are you sure you want to delete <?= htmlspecialchars($agency['company_name']); ?>?');">
                     Delete
                 </a>
                 </td>
