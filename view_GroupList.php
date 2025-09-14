@@ -38,7 +38,6 @@
                         <td><?= htmlspecialchars($group['group_name']); ?></td>
                         <td><?= htmlspecialchars($group['gdebut_date']); ?></td>
                         <td class="text-center"><?= htmlspecialchars($group['status']); ?></td>
-                        <td><?= htmlspecialchars($group['company_id']); ?></td>
                         <td class="text-center">
                             <a href="controller.php?controller=group&action=showUpdateForm&id=<?= $group['group_id']; ?>" class="btn btn-sm btn-warning me-1">Edit Group</a>
                             <a href="controller.php?controller=group&action=delete&id=<?= $group['group_id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this group?');">Delete</a>                        
