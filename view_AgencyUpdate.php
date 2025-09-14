@@ -17,38 +17,38 @@
         <?php
 
             $agency = [
-            "id" => $_GET['id'],
-            "name" => $_GET['name'],
-            "address" => $_GET['address'],
-            "year" => $_GET['year'],
-            "ceo" => $_GET['ceo']
+            "company_id" => $_GET['company_id'],
+            "company_name" => $_GET['company_name'],
+            "location" => $_GET['location'],
+            "founding_year" => $_GET['founding_year'],
+            "ceo_name" => $_GET['ceo_name']
             ];
             
         ?>
 
-        <form action="update_agency.php" method="POST">
+        <form action="view_AgencyUpdate.php" method="POST">
             <!-- hidden id -->
-            <input type="hidden" name="id" value="<?php echo $agency['id']; ?>">
+            <input type="hidden" name="company_id" value="<?php echo $agency['company_id']; ?>">
 
             <div class="mb-3">
-            <label for="name" class="form-label">Nama Agensi</label>
-            <input type="text" class="form-control" id="name" name="name"
-                    value="<?php echo htmlspecialchars($agency['name']); ?>" required>
+            <label for="company_name" class="form-label">Agency Name</label>
+            <input type="text" class="form-control" id="company_name" name="company_name"
+                    value="<?php echo htmlspecialchars($agency['company_name']); ?>" required>
             </div>
 
             <div class="mb-3">
-            <label for="address" class="form-label">Alamat</label>
-            <input type="text" class="form-control" id="address" name="address"
-                    value="<?php echo htmlspecialchars($agency['address']); ?>" required>
+            <label for="location" class="form-label">Location</label>
+            <input type="text" class="form-control" id="location" name="location"
+                    value="<?php echo htmlspecialchars($agency['location']); ?>" required>
             </div>
 
             <div class="mb-3">
-            <label for="year" class="form-label">Tahun Berdiri</label>
-            <input type="text" class="form-control" id="year" name="year"
-                    value="<?php echo htmlspecialchars($agency['year']); ?>" required>
+            <label for="founding_year" class="form-label">Founding Year</label>
+            <input type="text" class="form-control" id="founding_year" name="founding_year"
+                    value="<?php echo htmlspecialchars($agency['founding_year']); ?>" required>
             </div>
 
             <div class="mb-3">
-            <label for="ceo" class="form-label">CEO</label>
-            <input type="text" class="form-control" id="ceo" name="ceo"
-                    value="<?php echo htmlspecialchars($agency['ceo']); ?>" required>
+            <label for="ceo_name" class="form-label">CEO Name</label>
+            <input type="text" class="form-control" id="ceo_name" name="ceo_name"
+                    value="<?php echo htmlspecialchars($agency['ceo_name']); ?>" required>

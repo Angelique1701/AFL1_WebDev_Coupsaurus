@@ -16,23 +16,23 @@
         <div class="card-body">
         <form>
             <div class="mb-3">
-            <label for="name" class="form-label">Nama Agensi</label>
-            <input type="text" class="form-control" id="company_name" placeholder="Masukkan nama agensi">
+            <label for="name" class="form-label">Agency Name</label>
+            <input type="text" class="form-control" id="company_name" placeholder="Input the Agency Name">
             </div>
 
             <div class="mb-3">
-            <label for="address" class="form-label">Alamat</label>
-            <input type="text" class="form-control" id="location" placeholder="Masukkan alamat">
+            <label for="address" class="form-label">Location</label>
+            <input type="text" class="form-control" id="location" placeholder="Example: Seoul, Busan, etc.">
             </div>
 
             <div class="mb-3">
-            <label for="year" class="form-label">Tahun Berdiri</label>
-            <input type="text" class="form-control" id="founding_year" placeholder="Contoh: 2001">
+            <label for="year" class="form-label">Founding Year</label>
+            <input type="text" class="form-control" id="founding_year" placeholder="Example: 2000, 2010, etc.">
             </div>
 
             <div class="mb-3">
-            <label for="ceo" class="form-label">CEO</label>
-            <input type="text" class="form-control" id="ceo_name" placeholder="Masukkan nama CEO">
+            <label for="ceo" class="form-label">CEO Name</label>
+            <input type="text" class="form-control" id="ceo_name" placeholder="Input the CEO Name">
             </div>
 
             <div class="text-center">
