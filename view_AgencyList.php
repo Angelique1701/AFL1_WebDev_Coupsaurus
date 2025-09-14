@@ -39,10 +39,11 @@
         <td class="text-center"><?= htmlspecialchars($agency['founding_year']); ?></td>
         <td><?= htmlspecialchars($agency['ceo_name']); ?></td>
         <td class="text-center">
+
     <a href="controller.php?controller=agency&action=showUpdateForm&id=<?= $agency['company_id']; ?>" class="btn btn-sm btn-warning me-1">Edit</a>
     
-    <a href="controller.php?controller=group&action=list&agency_id=<?= $agency['company_id']; ?>" class="btn btn-sm btn-info me-1">View Groups</a>
-    
+    <a href="controller.php?controller=group&action=list&agency_id=<?= $agency['company_id']; ?>" 
+    class="btn btn-sm btn-info">View Groups</a>
     <a href="controller.php?controller=agency&action=delete&id=<?= $agency['company_id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this agency?');">Delete</a>
 </td>
     </tr>

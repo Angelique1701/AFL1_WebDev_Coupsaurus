@@ -15,6 +15,9 @@
     </div>
     <div class="card-body">
     <form action="controller.php?controller=group&action=add" method="POST">
+    
+    <input type="hidden" name="company_id" value="<?= htmlspecialchars($_GET['agency_id']); ?>">
+
     <div class="mb-3">
         <label for="group_name" class="form-label">Group Name</label>
         <input type="text" class="form-control" id="group_name" name="group_name" placeholder="Input the Group Name" required>
