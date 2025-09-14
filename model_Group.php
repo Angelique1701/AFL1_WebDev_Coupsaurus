@@ -4,7 +4,7 @@ class GroupModel {
 
     public function getGroupsByAgencyId($company_id) {
         $sql = "SELECT g.group_id, g.group_name, g.gdebut_date, g.status, 
-                       g.company_id, c.company_name AS agency_name
+                        g.company_id, c.company_name AS agency_name
                 FROM groups g
                 JOIN companies c ON g.company_id = c.company_id
                 WHERE g.company_id = ?";

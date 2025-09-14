@@ -13,7 +13,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3 mb-0">Agency List</h1>
         <div>
-        <a href="controller.php?controller=agency&action=showAddForm" class="btn btn-primary me-2">Add New Agency</a>
+        <a href="controller.php?controller=agency&action=showAddForm" class="btn btn-success">Add New Agency</a>
         </div>
     </div>
 

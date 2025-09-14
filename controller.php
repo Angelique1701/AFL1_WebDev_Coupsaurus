@@ -14,6 +14,9 @@ if ($controller == 'agency') {
         $agencies = $modelAgency->getAgency();
         include 'view_AgencyList.php';
 
+    } elseif ($action == 'showAddForm') {
+        include 'view_AgencyAdd.php';
+
     } elseif ($action == 'add' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $modelAgency->addAgency($_POST['company_name'], $_POST['location'], $_POST['ceo_name'], $_POST['founding_year']);
         header('Location: controller.php?controller=agency&action=list');
@@ -33,6 +36,7 @@ if ($controller == 'agency') {
     } else {
         echo "Action agency tidak dikenali";
     }
+
 
 // ================== GROUP ==================
 } elseif ($controller == 'group') {
