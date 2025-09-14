@@ -16,17 +16,17 @@
     <div class="card-body">
       <form>
         <div class="mb-3">
-          <label for="name" class="form-label">Group Name</label>
+          <label for="group_name" class="form-label">Group Name</label>
           <input type="text" class="form-control" id="group_name" placeholder="Input the Group Name">
         </div>
 
         <div class="mb-3">
-          <label for="address" class="form-label">Debut Date</label>
+          <label for="location" class="form-label">Debut Date</label>
           <input type="text" class="form-control" id="gdebut_date" placeholder="Example: 2023-01-01">
         </div>
 
         <div class="mb-3">
-          <label for="year" class="form-label">Status</label>
+          <label for="status" class="form-label">Status</label>
           <input type="text" class="form-control" id="status" placeholder="Example: Active / Hiatus / Disband">
         </div>
 

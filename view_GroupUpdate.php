@@ -17,38 +17,38 @@
         <?php
 
             $agency = [
-            "id" => $_GET['group_id'],
+            "group_id" => $_GET['group_id'],
             "group_name" => $_GET['group_name'],
             "debut_date" => $_GET['gdebut_date'],
             "status" => $_GET['status'],
-            "agency_id" => $_GET['company_id']
+            "company_id" => $_GET['company_id']
             ];
             
         ?>
 
-        <form action="update_group.php" method="POST">
+        <form action="view_GroupUpdate.php" method="POST">
             <!-- hidden id -->
-            <input type="hidden" name="id" value="<?php echo $group['id']; ?>">
+            <input type="hidden" name="group_id" value="<?php echo $group['group_id']; ?>">
 
             <div class="mb-3">
-            <label for="name" class="form-label">Nama Agensi</label>
-            <input type="text" class="form-control" id="name" name="name"
-                    value="<?php echo htmlspecialchars($group['name']); ?>" required>
+            <label for="group_name" class="form-label">Group Name</label>
+            <input type="text" class="form-control" id="group_name" name="group_name"
+                    value="<?php echo htmlspecialchars($group['group_name']); ?>" required>
             </div>
 
             <div class="mb-3">
-            <label for="address" class="form-label">Alamat</label>
-            <input type="text" class="form-control" id="address" name="address"
-                    value="<?php echo htmlspecialchars($group['address']); ?>" required>
+            <label for="gdebut_date" class="form-label">Debut Date</label>
+            <input type="text" class="form-control" id="gdebut_date" name="gdebut_date"
+                    value="<?php echo htmlspecialchars($group['gdebut_date']); ?>" required>
             </div>
 
             <div class="mb-3">
-            <label for="year" class="form-label">Tahun Berdiri</label>
-            <input type="text" class="form-control" id="year" name="year"
-                    value="<?php echo htmlspecialchars($group['year']); ?>" required>
+            <label for="status" class="form-label">Status</label>
+            <input type="text" class="form-control" id="status" name="status"
+                    value="<?php echo htmlspecialchars($group['status']); ?>" required>
             </div>
 
             <div class="mb-3">
-            <label for="ceo" class="form-label">CEO</label>
-            <input type="text" class="form-control" id="ceo" name="ceo"
-                    value="<?php echo htmlspecialchars($group['ceo']); ?>" required>
+            <label for="company_id" class="form-label">Company ID</label>
+            <input type="text" class="form-control" id="company_id" name="company_id"
+                    value="<?php echo htmlspecialchars($group['company_id']); ?>" required>

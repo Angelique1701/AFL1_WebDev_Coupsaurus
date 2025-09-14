@@ -28,21 +28,20 @@
                         <th>Group Name</th>
                         <th>Debut Date</th>
                         <th>Status</th>
-                        <th>Agency ID</th>
                         <th style="width: 150px;">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($groups as $group): ?>
                     <tr>
-                        <td class="text-center"><?= htmlspecialchars($group['id']); ?></td>
+                        <td class="text-center"><?= htmlspecialchars($group['group_id']); ?></td>
                         <td><?= htmlspecialchars($group['group_name']); ?></td>
-                        <td><?= htmlspecialchars($group['debut_date']); ?></td>
+                        <td><?= htmlspecialchars($group['gdebut_date']); ?></td>
                         <td class="text-center"><?= htmlspecialchars($group['status']); ?></td>
-                        <td><?= htmlspecialchars($group['agency_id']); ?></td>
+                        <td><?= htmlspecialchars($group['company_id']); ?></td>
                         <td class="text-center">
-                            <a href="edit_group.php?id=<?= $group['id']; ?>" class="btn btn-sm btn-warning me-1">Edit</a>
-                            <a href="delete_group.php?id=<?= $group['id']; ?>" 
+                            <a href="view_GroupUpdate.php?id=<?= $group['group_id']; ?>" class="btn btn-sm btn-warning me-1">Edit</a>
+                            <a href="view_GroupDelete.php?id=<?= $group['group_id']; ?>" 
                             class="btn btn-sm btn-danger" 
                             onclick="return confirm('Are you sure you want to delete this group?');">Delete</a>
                         </td>
