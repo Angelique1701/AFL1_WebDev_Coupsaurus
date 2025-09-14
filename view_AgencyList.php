@@ -22,7 +22,7 @@
             <table class="table table-hover table-bordered mb-0">
                 <thead class="table-light">
                     <tr class="text-center">
-                        <th>ID</th>
+                        <th>Agency ID</th>
                         <th>Name</th>
                         <th>Location</th>
                         <th>Founding Year</th>
