@@ -38,6 +38,7 @@
     </div>
 
     <div class="text-center">
+        <a href="controller.php?controller=group&action=list" class="btn btn-secondary">Back to Group List</a>
         <button type="submit" class="btn btn-primary px-4">Submit</button>
     </div>
 </form>

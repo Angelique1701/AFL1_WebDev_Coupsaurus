@@ -36,10 +36,11 @@
     </div>
 
     <div class="text-center">
+        <a href="controller.php?controller=agency&action=list" class="btn btn-secondary">Back to Agency List</a>
         <button type="submit" class="btn btn-primary px-4">Submit</button>
     </div>
 </form>
- ⁠
+
 
         </div>
     </div>

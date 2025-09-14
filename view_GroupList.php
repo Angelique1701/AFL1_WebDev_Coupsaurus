@@ -16,12 +16,14 @@
         
         <?php if (!empty($groups)): ?>
             <!-- Kalau ada group, ambil agency_id dari grup pertama -->
+            <a href="controller.php?controller=agency&action=list" class="btn btn-secondary">Back to Agency List</a>
             <a href="controller.php?controller=group&action=showAddForm&agency_id=<?= $groups[0]['company_id']; ?>" 
-               class="btn btn-sm btn-success me-1">Add New Group</a>
+            class="btn btn-sm btn-success me-1">Add New Group</a>
         <?php elseif (isset($_GET['agency_id'])): ?>
             <!-- Kalau belum ada grup, tetap bisa add dengan agency_id dari URL -->
+            <a href="controller.php?controller=agency&action=list" class="btn btn-secondary">Back to Agency List</a>
             <a href="controller.php?controller=group&action=showAddForm&agency_id=<?= $_GET['agency_id']; ?>" 
-               class="btn btn-sm btn-success me-1">Add New Group</a>
+            class="btn btn-sm btn-success me-1">Add New Group</a>
         <?php endif; ?>
     </div>
 
@@ -49,11 +51,11 @@
                             <td class="text-center">
                                 <!-- Edit bawa id group + agency_id -->
                                 <a href="controller.php?controller=group&action=showUpdateForm&id=<?= $group['group_id']; ?>&agency_id=<?= $group['company_id']; ?>" 
-                                   class="btn btn-sm btn-warning me-1">Edit</a>
+                                class="btn btn-sm btn-warning me-1">Edit</a>
 
                                 <!-- Delete bawa id group + agency_id -->
                                 <a href="controller.php?controller=group&action=delete&id=<?= $group['group_id']; ?>&agency_id=<?= $group['company_id']; ?>" 
-                                   class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this group?');">Delete</a>                        
+                                class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this group?');">Delete</a>                        
                             </td>
                         </tr>
                         <?php endforeach; ?>

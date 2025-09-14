@@ -36,17 +36,18 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="ceo_name" class="form-label">CEO Name</label>
-                    <input type="text" class="form-control" id="ceo_name" name="ceo_name"
+                <label for="ceo_name" class="form-label">CEO Name</label>
+                <input type="text" class="form-control" id="ceo_name" name="ceo_name"
                         value="<?= htmlspecialchars($agency['ceo_name']); ?>" required>
                 </div>
 
                 <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn-success">Update Agency</button>
+                <a href="controller.php?controller=agency&action=list" class="btn btn-secondary">Back to Agency List</a>
+                <button type="submit" class="btn btn-success">Update Agency</button>
                 </div>
-            </form>
+        </form>
         </div>
-    </div>
+</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
