@@ -7,10 +7,10 @@ class GroupModel {
         $stmt->bind_param("i", $company_id);
         $stmt->execute();
         $result = $stmt->get_result();
-
+    
         $groups = [];
-        if ($result && $result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
                 $groups[] = $row;
             }
         }
