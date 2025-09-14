@@ -16,7 +16,7 @@ if ($controller == 'agency') {
     } elseif ($action == 'add' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $modelAgency->addAgency($_POST['company_name'], $_POST['location'], $_POST['ceo_name'], $_POST['founding_year']);
         header('Location: controller.php?controller=agency&action=list');
-    } elseif ($action == 'update' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    }elseif ($action == 'update' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $modelAgency->updateAgency($_POST['company_id'], $_POST['company_name'], $_POST['location'], $_POST['ceo_name'], $_POST['founding_year']);
         header('Location: controller.php?controller=agency&action=list');
     } elseif ($action == 'delete' && isset($_GET['id'])) {

@@ -24,13 +24,23 @@ class AgencyModel {
 
     public function addAgency($company_name, $location, $ceo_name, $founding_year) {
         $stmt = $this->conn->prepare("INSERT INTO companies (company_name, location, ceo_name, founding_year) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("sssi", $company_name, $location, $ceo_name, $founding_year);
-        return $stmt->execute();
+        if (!$stmt) {
+            die("Prepare failed: " . $this->conn->error);
+        }
+    
+        // kalau founding_year masih YEAR di DB:
+        $stmt->bind_param("ssss", $company_name, $location, $ceo_name, $founding_year);
+    
+        if (!$stmt->execute()) {
+            die("Execute failed: " . $stmt->error);
+        }
+    
+        return true;
     }
 
     public function updateAgency($company_id, $company_name, $location, $ceo_name, $founding_year) {
         $stmt = $this->conn->prepare("UPDATE companies SET company_name = ?, location = ?, ceo_name = ?, founding_year = ? WHERE company_id = ?");
-        $stmt->bind_param("sssii", $company_name, $location, $ceo_name, $founding_year, $company_id);
+        $stmt->bind_param("ssssi", $company_name, $location, $ceo_name, $founding_year, $company_id);
         return $stmt->execute();
     }
 

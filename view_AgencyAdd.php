@@ -14,31 +14,33 @@
         <h4 class="mb-0">Add New Agency</h4>
         </div>
         <div class="card-body">
-        <form>
-            <div class="mb-3">
-            <label for="name" class="form-label">Agency Name</label>
-            <input type="text" class="form-control" id="company_name" placeholder="Input the Agency Name">
-            </div>
+        <form action="controller.php?controller=agency&action=add" method="POST">
+    <div class="mb-3">
+        <label for="company_name" class="form-label">Agency Name</label>
+        <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Input the Agency Name" required>
+    </div>
 
-            <div class="mb-3">
-            <label for="address" class="form-label">Location</label>
-            <input type="text" class="form-control" id="location" placeholder="Example: Seoul, Busan, etc.">
-            </div>
+    <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" class="form-control" id="location" name="location" placeholder="Example: Seoul, Busan, etc." required>
+    </div>
 
-            <div class="mb-3">
-            <label for="year" class="form-label">Founding Year</label>
-            <input type="text" class="form-control" id="founding_year" placeholder="Example: 2000, 2010, etc.">
-            </div>
+    <div class="mb-3">
+        <label for="founding_year" class="form-label">Founding Year</label>
+        <input type="number" class="form-control" id="founding_year" name="founding_year" placeholder="Example: 2000" required>
+    </div>
 
-            <div class="mb-3">
-            <label for="ceo" class="form-label">CEO Name</label>
-            <input type="text" class="form-control" id="ceo_name" placeholder="Input the CEO Name">
-            </div>
+    <div class="mb-3">
+        <label for="ceo_name" class="form-label">CEO Name</label>
+        <input type="text" class="form-control" id="ceo_name" name="ceo_name" placeholder="Input the CEO Name" required>
+    </div>
 
-            <div class="text-center">
-            <button type="submit" class="btn btn-primary px-4">Submit</button>
-            </div>
-        </form>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary px-4">Submit</button>
+    </div>
+</form>
+ ⁠
+
         </div>
     </div>
     </div>

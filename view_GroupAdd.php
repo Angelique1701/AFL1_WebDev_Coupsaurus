@@ -14,26 +14,31 @@
       <h4 class="mb-0">Add New Group</h4>
     </div>
     <div class="card-body">
-      <form>
-        <div class="mb-3">
-          <label for="group_name" class="form-label">Group Name</label>
-          <input type="text" class="form-control" id="group_name" placeholder="Input the Group Name">
-        </div>
+    <form action="controller.php?controller=group&action=add" method="POST">
+    <div class="mb-3">
+        <label for="group_name" class="form-label">Group Name</label>
+        <input type="text" class="form-control" id="group_name" name="group_name" placeholder="Input the Group Name" required>
+    </div>
 
-        <div class="mb-3">
-          <label for="location" class="form-label">Debut Date</label>
-          <input type="text" class="form-control" id="gdebut_date" placeholder="Example: 2023-01-01">
-        </div>
+    <div class="mb-3">
+        <label for="gdebut_date" class="form-label">Debut Date</label>
+        <input type="date" class="form-control" id="gdebut_date" name="gdebut_date" required>
+    </div>
 
-        <div class="mb-3">
-          <label for="status" class="form-label">Status</label>
-          <input type="text" class="form-control" id="status" placeholder="Example: Active / Hiatus / Disband">
-        </div>
+    <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
+        <select class="form-select" id="status" name="status" required>
+            <option value="Active">Active</option>
+            <option value="Hiatus">Hiatus</option>
+            <option value="Disband">Disband</option>
+        </select>
+    </div>
 
-        <div class="text-center">
-          <button type="submit" class="btn btn-primary px-4">Submit</button>
-        </div>
-      </form>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary px-4">Submit</button>
+    </div>
+</form>
+
     </div>
   </div>
 </div>
