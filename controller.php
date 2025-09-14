@@ -8,6 +8,7 @@ $modelGroup = new GroupModel();
 $controller = $_GET['controller'] ?? 'agency';
 $action     = $_GET['action'] ?? 'list';
 
+// ================== AGENCY ==================
 if ($controller == 'agency') {
     if ($action == 'list') {
         $agencies = $modelAgency->getAgency();
@@ -30,6 +31,7 @@ if ($controller == 'agency') {
         echo "Action agency tidak dikenali";
     }
 
+// ================== GROUP ==================
 } elseif ($controller == 'group') {
     if ($action == 'list') {
         if (isset($_GET['agency_id'])) {
@@ -38,7 +40,6 @@ if ($controller == 'agency') {
             $groups = $modelGroup->getGroups();
         }
         include 'view_GroupList.php';
-    }
     } elseif ($action == 'add' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $modelGroup->addGroup($_POST['company_id'], $_POST['group_name'], $_POST['gdebut_date'], $_POST['status']);
         header('Location: controller.php?controller=group&action=list');
@@ -52,19 +53,11 @@ if ($controller == 'agency') {
         $group = $modelGroup->getGroupById($_GET['id']);
         $agencies = $modelAgency->getAgency();
         include 'view_GroupUpdate.php';
-    } elseif ($controller == 'group') {
-        if ($action == 'list') {
-            // Cek apakah ada parameter agency_id di URL
-            if (isset($_GET['agency_id'])) {
-                $groups = $modelGroup->getGroupsByAgencyId($_GET['agency_id']);
-            } else {
-                $groups = $modelGroup->getGroups();
-            }
-            include 'views/group/list.php';
-        }  else {
+    } else {
         echo "Action group tidak dikenali";
     }
 
+// ================== FALLBACK ==================
 } else {
     echo "Controller tidak dikenali";
 }
