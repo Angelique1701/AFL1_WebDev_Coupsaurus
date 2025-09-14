@@ -10,14 +10,15 @@ class model {
         }
     }
 
-public function getGroups() {
-        $sql = "SELECT g.id, g.group_name, a.name AS agency_name 
-                FROM groups g 
-                JOIN agency a ON g.agency_id = a.id";
+    public function getGroups() {
+        $sql = "SELECT g.group_id, g.group_name, g.gdebut_date, g.status, 
+                        c.company_name AS agency_name
+                FROM groups g
+                JOIN companies c ON g.company_id = c.company_id";
         $result = $this->conn->query($sql);
 
         $groups = [];
-        if ($result->num_rows > 0) {
+        if ($result && $result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $groups[] = $row;
             }
@@ -25,21 +26,23 @@ public function getGroups() {
         return $groups;
     }
 
-    public function addGruop($agency_id, $group_name) {
-        $stmt = $this->conn->prepare("INSERT INTO groups (agency_id, group_name) VALUES (?, ?)");
-        $stmt->bind_param("is", $agency_id, $group_name);
+    public function addGroup($company_id, $group_name, $gdebut_date, $status) {
+        $stmt = $this->conn->prepare("INSERT INTO groups (company_id, group_name, gdebut_date, status) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("isss", $company_id, $group_name, $gdebut_date, $status);
         return $stmt->execute();
     }
 
-    public function updateGroup($id, $agency_id, $group_name) {
-        $stmt = $this->conn->prepare("UPDATE groups SET agency_id = ?, group_name = ? WHERE id = ?");
-        $stmt->bind_param("isi", $agency_id, $group_name, $id);
+    public function updateGroup($group_id, $company_id, $group_name, $gdebut_date, $status) {
+        $stmt = $this->conn->prepare("UPDATE groups 
+                                    SET company_id = ?, group_name = ?, gdebut_date = ?, status = ? 
+                                    WHERE group_id = ?");
+        $stmt->bind_param("isssi", $company_id, $group_name, $gdebut_date, $status, $group_id);
         return $stmt->execute();
     }
 
-    public function deleteGroup($id) {
-        $stmt = $this->conn->prepare("DELETE FROM groups WHERE id = ?");
-        $stmt->bind_param("i", $id);
+    public function deleteGroup($group_id) {
+        $stmt = $this->conn->prepare("DELETE FROM groups WHERE group_id = ?");
+        $stmt->bind_param("i", $group_id);
         return $stmt->execute();
     }
 

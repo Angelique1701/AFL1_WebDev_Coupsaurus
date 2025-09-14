@@ -29,7 +29,7 @@
                 <td><?= htmlspecialchars($agency['name']); ?></td>
                 <td><?= htmlspecialchars($agency['ceo']); ?></td>
                 <td class="text-center">
-                <a href="delete_agency.php?id=<?= $agency['id']; ?>" 
+                <a href="view_AgencyDelete.php?id=<?= $agency['id']; ?>" 
                     class="btn btn-sm btn-danger"
                     onclick="return confirm('Are you sure you want to delete <?= htmlspecialchars($agency['name']); ?>?');">
                     Delete
