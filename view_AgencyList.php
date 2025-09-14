@@ -10,7 +10,6 @@
 
 <div class="container mt-5">
 
-    <!-- Header + tombol -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3 mb-0">Agency List</h1>
         <div>
@@ -18,7 +17,6 @@
         </div>
     </div>
 
-    <!-- Tabel -->
     <div class="card shadow">
         <div class="card-body p-0">
             <table class="table table-hover table-bordered mb-0">
@@ -26,7 +24,7 @@
                     <tr class="text-center">
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Address</th>
+                        <th>Location</th>
                         <th>Founding Year</th>
                         <th>CEO</th>
                         <th style="width: 150px;">Actions</th>
@@ -35,16 +33,16 @@
                 <tbody>
                     <?php foreach ($agencies as $agency): ?>
                     <tr>
-                        <td class="text-center"><?= htmlspecialchars($agency['id']); ?></td>
-                        <td><?= htmlspecialchars($agency['name']); ?></td>
-                        <td><?= htmlspecialchars($agency['address']); ?></td>
-                        <td class="text-center"><?= htmlspecialchars($agency['year']); ?></td>
-                        <td><?= htmlspecialchars($agency['ceo']); ?></td>
+                        <td class="text-center"><?= htmlspecialchars($agency['company_id']); ?></td>
+                        <td><?= htmlspecialchars($agency['company_name']); ?></td>
+                        <td><?= htmlspecialchars($agency['location']); ?></td>
+                        <td class="text-center"><?= htmlspecialchars($agency['founding_year']); ?></td>
+                        <td><?= htmlspecialchars($agency['ceo_name']); ?></td>
                         <td class="text-center">
-                            <a href="edit_agency.php?id=<?= $agency['id']; ?>" class="btn btn-sm btn-warning me-1">Edit</a>
-                            <a href="delete_agency.php?id=<?= $agency['id']; ?>" 
-                            class="btn btn-sm btn-danger" 
-                            onclick="return confirm('Are you sure you want to delete this agency?');">Delete</a>
+                            <a href="view_AgencyUpdate.php?id=<?= $agency['company_id']; ?>" class="btn btn-sm btn-warning me-1">Edit</a>
+                            <a href="view_AgencyDelete.php?id=<?= $agency['company_id']; ?>" 
+                                class="btn btn-sm btn-danger" 
+                                onclick="return confirm('Are you sure you want to delete this agency?');">Delete</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
