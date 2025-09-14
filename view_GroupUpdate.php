@@ -48,7 +48,15 @@
                     value="<?php echo htmlspecialchars($group['status']); ?>" required>
             </div>
 
-            <div class="mb-3">
-            <label for="company_id" class="form-label">Company ID</label>
-            <input type="text" class="form-control" id="company_id" name="company_id"
-                    value="<?php echo htmlspecialchars($group['company_id']); ?>" required>
+        <div class="mb-3">
+        <label for="company_id" class="form-label">Company</label>
+        <select class="form-select" id="company_id" name="company_id" required>
+                <option value="">-- Pilih Company --</option>
+                <?php foreach ($companies as $company): ?>
+                <option value="<?= htmlspecialchars($company['company_id']); ?>"
+                        <?= ($company['company_id'] == $group['company_id']) ? 'selected' : '' ?>>
+                        <?= htmlspecialchars($company['company_id']) . " - " . htmlspecialchars($company['company_name']); ?>
+                </option>
+                <?php endforeach; ?>
+        </select>
+        </div>
