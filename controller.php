@@ -72,6 +72,11 @@ if ($controller == 'agency') {
         $agency_id = $_GET['agency_id'];
         include 'view_GroupAdd.php';
 
+    } elseif ($action == 'listByAgency') {
+        $company_id = $_GET['company_id'];
+        $groups = $modelGroup->getGroupsByAgencyId($company_id);
+        include 'view_GroupList.php';
+    
     } else {
         echo "Action group tidak dikenali";
     }

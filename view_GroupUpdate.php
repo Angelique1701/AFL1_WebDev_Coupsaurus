@@ -51,7 +51,10 @@
                 </div>
 
                 <div class="d-flex justify-content-end">
-                        <a href="controller.php?controller=group&action=list" class="btn btn-secondary">Back to Group List</a>
+                        <a href="controller.php?controller=group&action=listByAgency&company_id=<?= htmlspecialchars($group['company_id']); ?>" 
+                        class="btn btn-secondary">
+                        Back to Group List
+                        </a>
                         <button type="submit" class="btn btn-success">Update Group</button>
                 </div>
                 </form>
