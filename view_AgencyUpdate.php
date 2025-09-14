@@ -51,3 +51,9 @@
         <label for="ceo_name" class="form-label">CEO Name</label>
         <input type="text" class="form-control" id="ceo_name" name="ceo_name"
                 value="<?php echo htmlspecialchars($agency['ceo_name']); ?>" required>
+        </div>
+
+        <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-success">Update Agency</button>
+        </div>
+        </form>

@@ -59,3 +59,8 @@
                 <?php endforeach; ?>
         </select>
         </div>
+
+        <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-success">Update Group</button>
+        </div>
+        </form>
