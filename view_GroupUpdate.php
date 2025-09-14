@@ -28,27 +28,27 @@
 
         <form action="update_group.php" method="POST">
             <!-- hidden id -->
-            <input type="hidden" name="id" value="<?php echo $agency['id']; ?>">
+            <input type="hidden" name="id" value="<?php echo $group['id']; ?>">
 
             <div class="mb-3">
             <label for="name" class="form-label">Nama Agensi</label>
             <input type="text" class="form-control" id="name" name="name"
-                    value="<?php echo htmlspecialchars($agency['name']); ?>" required>
+                    value="<?php echo htmlspecialchars($group['name']); ?>" required>
             </div>
 
             <div class="mb-3">
             <label for="address" class="form-label">Alamat</label>
             <input type="text" class="form-control" id="address" name="address"
-                    value="<?php echo htmlspecialchars($agency['address']); ?>" required>
+                    value="<?php echo htmlspecialchars($group['address']); ?>" required>
             </div>
 
             <div class="mb-3">
             <label for="year" class="form-label">Tahun Berdiri</label>
             <input type="text" class="form-control" id="year" name="year"
-                    value="<?php echo htmlspecialchars($agency['year']); ?>" required>
+                    value="<?php echo htmlspecialchars($group['year']); ?>" required>
             </div>
 
             <div class="mb-3">
             <label for="ceo" class="form-label">CEO</label>
             <input type="text" class="form-control" id="ceo" name="ceo"
-                    value="<?php echo htmlspecialchars($agency['ceo']); ?>" required>
+                    value="<?php echo htmlspecialchars($group['ceo']); ?>" required>

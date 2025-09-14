@@ -17,22 +17,22 @@
         <form>
             <div class="mb-3">
             <label for="name" class="form-label">Nama Agensi</label>
-            <input type="text" class="form-control" id="name" placeholder="Masukkan nama agensi">
+            <input type="text" class="form-control" id="company_name" placeholder="Masukkan nama agensi">
             </div>
 
             <div class="mb-3">
             <label for="address" class="form-label">Alamat</label>
-            <input type="text" class="form-control" id="address" placeholder="Masukkan alamat">
+            <input type="text" class="form-control" id="location" placeholder="Masukkan alamat">
             </div>
 
             <div class="mb-3">
             <label for="year" class="form-label">Tahun Berdiri</label>
-            <input type="text" class="form-control" id="year" placeholder="Contoh: 2001">
+            <input type="text" class="form-control" id="founding_year" placeholder="Contoh: 2001">
             </div>
 
             <div class="mb-3">
             <label for="ceo" class="form-label">CEO</label>
-            <input type="text" class="form-control" id="ceo" placeholder="Masukkan nama CEO">
+            <input type="text" class="form-control" id="ceo_name" placeholder="Masukkan nama CEO">
             </div>
 
             <div class="text-center">
