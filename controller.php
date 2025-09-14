@@ -32,8 +32,13 @@ if ($controller == 'agency') {
 
 } elseif ($controller == 'group') {
     if ($action == 'list') {
-        $groups = $modelGroup->getGroups();
+        if (isset($_GET['agency_id'])) {
+            $groups = $modelGroup->getGroupsByAgencyId($_GET['agency_id']);
+        } else {
+            $groups = $modelGroup->getGroups();
+        }
         include 'view_GroupList.php';
+    }
     } elseif ($action == 'add' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $modelGroup->addGroup($_POST['company_id'], $_POST['group_name'], $_POST['gdebut_date'], $_POST['status']);
         header('Location: controller.php?controller=group&action=list');
@@ -47,7 +52,7 @@ if ($controller == 'agency') {
         $group = $modelGroup->getGroupById($_GET['id']);
         $agencies = $modelAgency->getAgency();
         include 'view_GroupUpdate.php';
-    } } elseif ($controller == 'group') {
+    } elseif ($controller == 'group') {
         if ($action == 'list') {
             // Cek apakah ada parameter agency_id di URL
             if (isset($_GET['agency_id'])) {
