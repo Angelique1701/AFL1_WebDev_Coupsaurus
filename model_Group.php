@@ -1,6 +1,21 @@
 <?php
-class model {
+class GroupModel {
     private $conn;
+
+    public function getGroupsByAgencyId($company_id) {
+        $stmt = $this->conn->prepare("SELECT * FROM groups WHERE company_id = ?");
+        $stmt->bind_param("i", $company_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $groups = [];
+        if ($result && $result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $groups[] = $row;
+            }
+        }
+        return $groups;
+    }
 
     public function __construct() {
         $this->conn = new mysqli("localhost", "root", "", "agency");
@@ -49,4 +64,13 @@ class model {
     public function __destruct() {
         $this->conn->close();
     }
+
+    public function getGroupById($id) {
+        $stmt = $this->conn->prepare("SELECT * FROM groups WHERE group_id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc(); // return 1 row (array)
+    }
+    
 }

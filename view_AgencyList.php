@@ -13,7 +13,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3 mb-0">Agency List</h1>
         <div>
-            <a href="view_AgencyAdd.php" class="btn btn-primary me-2">Add New Agency</a>
+        <a href="controller.php?controller=agency&action=showAddForm" class="btn btn-primary me-2">Add New Agency</a>
         </div>
     </div>
 
@@ -31,22 +31,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($agencies as $agency): ?>
-                    <tr>
-                        <td class="text-center"><?= htmlspecialchars($agency['company_id']); ?></td>
-                        <td><?= htmlspecialchars($agency['company_name']); ?></td>
-                        <td><?= htmlspecialchars($agency['location']); ?></td>
-                        <td class="text-center"><?= htmlspecialchars($agency['founding_year']); ?></td>
-                        <td><?= htmlspecialchars($agency['ceo_name']); ?></td>
-                        <td class="text-center">
-                            <a href="view_AgencyUpdate.php?id=<?= $agency['company_id']; ?>" class="btn btn-sm btn-warning me-1">Edit</a>
-                            <a href="view_AgencyDelete.php?id=<?= $agency['company_id']; ?>" 
-                                class="btn btn-sm btn-danger" 
-                                onclick="return confirm('Are you sure you want to delete this agency?');">Delete</a>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
+    <?php foreach ($agencies as $agency): ?>
+    <tr>
+        <td class="text-center"><?= htmlspecialchars($agency['company_id']); ?></td>
+        <td><?= htmlspecialchars($agency['company_name']); ?></td>
+        <td><?= htmlspecialchars($agency['location']); ?></td>
+        <td class="text-center"><?= htmlspecialchars($agency['founding_year']); ?></td>
+        <td><?= htmlspecialchars($agency['ceo_name']); ?></td>
+        <td class="text-center">
+    <a href="controller.php?controller=agency&action=showUpdateForm&id=<?= $agency['company_id']; ?>" class="btn btn-sm btn-warning me-1">Edit</a>
+    
+    <a href="controller.php?controller=group&action=list&agency_id=<?= $agency['company_id']; ?>" class="btn btn-sm btn-info me-1">View Groups</a>
+    
+    <a href="controller.php?controller=agency&action=delete&id=<?= $agency['company_id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this agency?');">Delete</a>
+</td>
+    </tr>
+    <?php endforeach; ?>
+</tbody>
             </table>
         </div>
     </div>
