@@ -8,7 +8,7 @@ $modelGroup  = new GroupModel();
 $controller = $_GET['controller'] ?? 'agency';
 $action     = $_GET['action'] ?? 'list';
 
-// ================== AGENCY ==================
+
 if ($controller == 'agency') {
     if ($action == 'list') {
         $agencies = $modelAgency->getAgency();
@@ -38,7 +38,6 @@ if ($controller == 'agency') {
     }
 
 
-// ================== GROUP ==================
 } elseif ($controller == 'group') {
     if ($action == 'list') {
         if (isset($_GET['agency_id'])) {
@@ -81,7 +80,6 @@ if ($controller == 'agency') {
         echo "Action group tidak dikenali";
     }
 
-// ================== FALLBACK ==================
 } else {
     echo "Controller tidak dikenali";
 }
