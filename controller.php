@@ -1,11 +1,20 @@
 <?php
+//menyertakan file external 
+//require_one itu dia masukin sekali meskipun diminta berkali kali
 require_once 'model_Agency.php';
 require_once 'model_Group.php';
 
+//yg kiri sebagai jembatan antara controller dan model dan kita kasi nama ny sebagai AgencyModel
+//yg kanan sebagai inisiasi nya
 $modelAgency = new AgencyModel();
 $modelGroup  = new GroupModel();
 
+//tanda tanya itu nanya null ato ga, kl ga null yg jalan yg sebelah kiri kalo null yg jalan yg sebelah kanan
+//$_get[controller] itu ambil dari url controller.php?controller=agency
+//tanda tanya agency itu kalo get controllerny null itu bakal ambil data dari agency, kl ga null bakal ambil default agency
 $controller = $_GET['controller'] ?? 'agency';
+//$action itu ambil dari url controller.php?controller=agency&action=list
+//kalo actionnya null itu bakal pake default list, kl ga null yg jalan nya yg get tapi ada tanda tanya nya
 $action     = $_GET['action'] ?? 'list';
 
 
@@ -14,27 +23,27 @@ if ($controller == 'agency') {
         $agencies = $modelAgency->getAgency();
         include 'view_AgencyList.php';
 
-    } elseif ($action == 'showAddForm') {
-        include 'view_AgencyAdd.php';
+    } elseif ($action == 'showAddForm') { //memenuhi get action=showAddForm
+        include 'view_AgencyAdd.php'; //tampil form add agency
 
-    } elseif ($action == 'add' && $_SERVER['REQUEST_METHOD'] === 'POST') {
-        $modelAgency->addAgency($_POST['company_name'], $_POST['location'], $_POST['ceo_name'], $_POST['founding_year']);
-        header('Location: controller.php?controller=agency&action=list');
+    } elseif ($action == 'add' && $_SERVER['REQUEST_METHOD'] === 'POST') { // kl action add terus di submit lewat post
+        $modelAgency->addAgency($_POST['company_name'], $_POST['location'], $_POST['ceo_name'], $_POST['founding_year']); //manggil function addAgency di model trus diisi data dari form
+        header('Location: controller.php?controller=agency&action=list');//balik ke list agency
 
-    } elseif ($action == 'update' && $_SERVER['REQUEST_METHOD'] === 'POST') {
-        $modelAgency->updateAgency($_POST['company_id'], $_POST['company_name'], $_POST['location'], $_POST['ceo_name'], $_POST['founding_year']);
-        header('Location: controller.php?controller=agency&action=list');
+    } elseif ($action == 'update' && $_SERVER['REQUEST_METHOD'] === 'POST') { // kl action update terus di submit lewat post
+        $modelAgency->updateAgency($_POST['company_id'], $_POST['company_name'], $_POST['location'], $_POST['ceo_name'], $_POST['founding_year']); //manggil function updateAgency di model trus diisi data dari form
+        header('Location: controller.php?controller=agency&action=list'); //balik ke list agency
 
-    } elseif ($action == 'delete' && isset($_GET['id'])) {
-        $modelAgency->deleteAgency($_GET['id']);
-        header('Location: controller.php?controller=agency&action=list');
+    } elseif ($action == 'delete' && isset($_GET['id'])) { //buat mastiin action yg dipilih delete dan ada id di url, kl ada baru jalan
+        $modelAgency->deleteAgency($_GET['id']); //manggil function deleteAgency di model trus mengdelete data berdasarkan id yg diambil
+        header('Location: controller.php?controller=agency&action=list'); //balik ke list agency
 
-    } elseif ($action == 'showUpdateForm' && isset($_GET['id'])) {
-        $agency = $modelAgency->getAgencyById($_GET['id']);
-        include 'view_AgencyUpdate.php';
+    } elseif ($action == 'showUpdateForm' && isset($_GET['id'])) { //buat mastiin action yg dipilih showUpdateForm dan ada id di url, kl ada baru jalan
+        $agency = $modelAgency->getAgencyById($_GET['id']); //manggil function getAgencyById di model trus ngambil data berdasarkan id yg diambil
+        include 'view_AgencyUpdate.php'; //tampil form update agency
 
     } else {
-        echo "Action agency tidak dikenali";
+        echo "Action agency tidak dikenali"; //buat mastiin kl action yg dipilih ga ada diatas, bakal muncul tulisan ini
     }
 
 
