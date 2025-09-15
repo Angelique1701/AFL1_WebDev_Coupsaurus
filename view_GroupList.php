@@ -14,17 +14,24 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3 mb-0">Group List</h1>
         
-        <?php if (!empty($groups)): ?>
-            <!-- Kalau ada group, ambil agency_id dari grup pertama -->
-            <a href="controller.php?controller=agency&action=list" class="btn btn-secondary">Back to Agency List</a>
-            <a href="controller.php?controller=group&action=showAddForm&agency_id=<?= $groups[0]['company_id']; ?>" 
-            class="btn btn-sm btn-success me-1">Add New Group</a>
-        <?php elseif (isset($_GET['agency_id'])): ?>
-            <!-- Kalau belum ada grup, tetap bisa add dengan agency_id dari URL -->
-            <a href="controller.php?controller=agency&action=list" class="btn btn-secondary">Back to Agency List</a>
-            <a href="controller.php?controller=group&action=showAddForm&agency_id=<?= $_GET['agency_id']; ?>" 
-            class="btn btn-sm btn-success me-1">Add New Group</a>
-        <?php endif; ?>
+        <div class="d-flex">
+            <?php if (!empty($groups)): ?>
+                <!-- Kalau ada group, ambil agency_id dari grup pertama -->
+                <a href="controller.php?controller=agency&action=list" 
+                class="btn btn-secondary me-2">Back to Agency List</a>
+
+                <a href="controller.php?controller=group&action=showAddForm&agency_id=<?= $groups[0]['company_id']; ?>" 
+                class="btn btn-success">Add New Group</a>
+
+            <?php elseif (isset($_GET['agency_id'])): ?>
+                <!-- Kalau belum ada grup, tetap bisa add dengan agency_id dari URL -->
+                <a href="controller.php?controller=agency&action=list" 
+                class="btn btn-secondary me-2">Back to Agency List</a>
+
+                <a href="controller.php?controller=group&action=showAddForm&agency_id=<?= $_GET['agency_id']; ?>" 
+                class="btn btn-success">Add New Group</a>
+            <?php endif; ?>
+        </div>
     </div>
 
     <!-- Tabel -->
