@@ -1,0 +1,91 @@
+========================================
+CARA INSTALL SISTEM LOGIN
+========================================
+
+LANGKAH 1: SETUP DATABASE
+--------------------------
+1. Buka phpMyAdmin atau MySQL command line
+2. Pastikan database 'agency' sudah ada
+3. Import file: database_setup.sql
+   
+   Cara import di phpMyAdmin:
+   - Pilih database 'agency'
+   - Klik tab 'Import'
+   - Pilih file 'database_setup.sql'
+   - Klik 'Go'
+
+   Atau via command line:
+   mysql -u root -p agency < database_setup.sql
+
+
+LANGKAH 2: JALANKAN SERVER
+---------------------------
+Pilih salah satu:
+
+A. PHP Built-in Server (Recommended untuk testing)
+   php -S 127.0.0.1:8000
+   Akses: http://127.0.0.1:8000
+
+B. XAMPP/WAMP
+   - Copy folder ke htdocs/www
+   - Akses: http://localhost/nama-folder
+
+C. Laravel Valet (Mac only)
+   valet link afl2_webdev
+   Akses: http://afl2_webdev.test
+
+
+LANGKAH 3: LOGIN
+-----------------
+Buka browser dan akses URL sesuai pilihan server di atas
+
+AKUN ADMIN:
+Username: admin
+Password: admin123
+
+AKUN PEMBELI:
+Username: pembeli1
+Password: pembeli123
+
+
+FITUR YANG TERSEDIA
+-------------------
+ADMIN:
+- Kelola Toko (CRUD)
+- Kelola Produk (CRUD)
+
+PEMBELI:
+- Lihat Produk
+- Kelola Review Sendiri (CRUD)
+
+
+TROUBLESHOOTING
+---------------
+1. Error "Connection failed"
+   → Cek MySQL sudah running
+   → Cek config.php (username, password, database)
+
+2. Error "Table doesn't exist"
+   → Import ulang database_setup.sql
+
+3. Error "Cannot login"
+   → Jalankan: php generate_password.php
+   → Copy SQL yang dihasilkan
+   → Jalankan di phpMyAdmin
+
+4. URL berubah-ubah
+   → Pilih satu metode server dan gunakan konsisten
+   → Jangan campur php -S dengan valet/xampp
+
+
+KENAPA URL BERUBAH?
+-------------------
+http://afl2_webdev.test → Virtual host (Valet/Apache)
+http://127.0.0.1:8000   → PHP built-in server
+
+Keduanya BERBEDA! Pilih salah satu.
+
+
+KONTAK
+------
+Jika masih ada masalah, hubungi developer.

@@ -1,0 +1,23 @@
+# .htaccess untuk Apache
+# Redirect ke index.php jika file tidak ditemukan
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirect root ke login.php
+    RewriteRule ^$ login.php [L]
+    
+    # Jika file/folder tidak ada, redirect ke login
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ login.php [L]
+</IfModule>
+
+# Prevent directory listing
+Options -Indexes
+
+# Protect sensitive files
+<FilesMatch "^(config\.php|database_setup\.sql|generate_password\.php)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
